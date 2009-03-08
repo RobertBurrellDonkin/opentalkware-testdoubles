@@ -273,14 +273,16 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Term: Fixture</h1>
+<h1><a name='fixture'>Term: Fixture</a></h1>
 <blockquote>
 <p>
 "All the things we need to have in place to run a test and expect a particular outcome."
 </p>
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
-
+<ul class='incremental'>
+  <li>Invest in good fixtures</li>
+</ul>
 <div class='handout'>
   <p>
   <em>Fixture</em> is one of those terms that's hard to define well. Different people and different tools
@@ -288,6 +290,15 @@ START OF SLIDE
   <a href='#xunittestpatterns'>Gerard Meszaros</a>, this talk uses it to mean the <em>test context</em>.
   Those familar with <a href='#nunit'>NUnit</a> may find this usage a little unnatural.
   </p>
+  <p>
+  A good fixture is an investment. It is usually easier and quicker just to throw a load of
+  dissimilar tests together by cut'N'paste. 
+  </p>
+  <p>
+  A good fixtures pays for itself by consolidating the context into an easily readable common setup
+  for a group of tests which not only test the same subject but the same general context as well. 
+  This usually allows permutations and variations to be added easily, and the fixture to be more 
+  readily malleable.
 </div>
 
 <div class="notes">
@@ -338,7 +349,15 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>TODO: Behaviour Verification</h1>
+<h1><a name='behaviourverification'>Pattern: Behaviour Verification</a></h1>
+<blockquote>
+<p>
+"How Do we make tests self-checking when there is no state to verify?.<br/>
+We capture the indirect outputs of the SUT as they occur and compare them 
+to the expected behaviour."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
 <ul class='incremental'>
 <li></li>
 </ul>
@@ -362,12 +381,256 @@ END OF SLIDE
 
 
 
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='hightestmaintenancecosts'>Project Smell - High Test Maintenance Cost</h1>
+<blockquote>
+<p>
+"Too much effort is spent maintaining existing tests."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+  <li>
+  A key issue for Agile project management
+  </li>
+  <li>Common causes:
+    <ul class='incremental'>
+    <li>Hard-To-Test Code</li>
+    <li><a href='#testcodeduplication'>Test Code Duplication</a></li>
+    <li><a href='#fragiletest'>Fragile Test</a></li>
+    <li><a href='#obscuretest'>Obscure Test</a></li>
+    </ul>
+  </li>
+</ul>
+
+<div class='handout'>
+  <p>
+  It's very easy for this to go unnoticed until it is too late. It's only clear that tests
+  are unmaintainable when the time spent debugging existing tests drags development velocity
+  down terminally. By this stage, it's too late - the system is overspecified and fixing
+  this is going to be expensive.
+  </p>
+  <p>
+  This is a particular problem for Agile projects with short development cycles.
+  </p>
+  <p>
+  Hard-To-Test code is one area that <cite><a href='#testdouble'>Test Doubles</a></cite>
+  have an important role to play. 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>When existing tests have to be debugged, this smells as if the original
+  test quality was not good enough</li>
+  <li>Managers need to activity monitor the amount of time spent modifying existing tests</li>
+  <li>Leaders need to actively monitor the quality of test code</li>
+  <li>Developers need to be able to feed information back up the chain</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
 
 <!--  
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Pattern - Test Double</h1>
+<h1><a name='testcodeduplication'>Code Smell - Test Code Duplication</a></h1>
+<blockquote>
+<p>
+"The same test code is repeated many times."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+  <li class='incremental'>Caused by:
+    <ul>
+      <li>
+  Lazy Test Coding
+      </li>
+      <li>
+  Enthusiastic Repetition
+      </li>
+    </ul>
+  </li>
+  <li class='incremental'>Leads to:
+    <ul>
+      <li><a href='#fragiletest'>Fragile Tests</a></li>
+      <li><a href='#obscuretest'>Obscure Tests</a></li>
+    </ul>
+</ul>
+
+<div class='handout'>
+  <p>
+  The typical way that these problems arises is by a failure to factor out common code. 
+  </p>
+  <p>
+  Poor quality code with lots of cut'N'paste repetition is just as harmful in test code
+  as it is in production code. When changes need to be made to the system, all that code 
+  is going to need to be review and updated. This is a key development quality issue
+  that needs to be quickly address before it leads to <cite><a href='#hightestmaintenancecosts'>
+  High Test Maintenance Costs</a></cite>. Investing in good <cite><a href='#fixture'>Fixtures</a>
+  </cite> by factoring out common code in the fixture is crucial.
+  </p>
+  <p>
+  At first glance, it might seem that more tests must be better but code coverage cannot 
+  be improved by repeated verification of the same quality. Every repeated verification is
+  another place that need to be changed if that function is modified. So, this has a 
+  maintenance cost.
+  </p>
+  <p>
+  Behind <cite>Test Code Duplication</cite> is usually an education or a time issue. 
+  When time is an issue, selectively coding a small number of carefully chosen high 
+  quality tests usually results in adequate coverage without the maintenance problem 
+  that rushing off a quantity of poor quality tests almost always creates. 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>These issues are often found together in tests which try to compensate for quality 
+  with quantity</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='fragiletest'>Behaviour Smell - Fragile Test</a></h1>
+<blockquote>
+<p>
+"A text fails to compile or run when the SUT is changed in ways 
+that do not affect the part the text is exercising."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+<li>Fragile Tests lead to <a href='#hightestmaintenancecosts'>High Test Maintenance Costs</a></li>
+<li>Two (Of The Many) Causes:
+  <ul class='incremental'>
+    <li>Overspecified Software</li>
+    <li>Interface Sensitivity</li>
+  </ul>
+</li>
+</ul>
+
+<div class='handout'>
+  <p>
+  <cite>Fragile Tests</cite> are almost worth a talk in themselves. Read 
+  <a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a> for a comprehensive
+  treatment. There are two causes which have direct relevance.
+  </p><p>
+  One trap when using <cite><a href='#behaviourverification'>Behaviour Verification</a></cite>
+  is to couple the test too deeply with the particular implementation. It fixes in detail
+  not just <em>what</em> the object should do but specifies exactly <em>how</em> it
+  should achieve it. Any change to the implementation will result in a broken test.
+  This is <cite>Overspecified Software</cite>.
+  </p><p>
+  Tests should attempt to pick out key qualities to verify. To avoid overspecification,
+  it is crucial to pick out the important interactions worthy of verification. A small
+  number of key actors should play the major roles. The others consist of minor parts 
+  and extras. These should just be used to feed lines to the chief protagonist,
+  with only the most important behaviour being verified. This allows the interactions
+  between the other objects and the subject to be modified without breaking the test.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>A common problem with <cite>Overspecified Software</cite> is that it's hard to
+  understand what exactly is being tested. Verifying unimportant implementation details
+  makes it hard to pick out the crucial required behaviours.
+  This leads to <a href='#obscuretest'>Obscure Tests</a> as well as <code>Fragile Test</code>.</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='obscuretest'>Code Smell - Obscure Test</a></h1>
+<blockquote>
+<p>
+"It is difficult to understand the test at a glance"
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+<li>
+Do the basics well
+</li>
+
+</ul>
+
+<div class='handout'>
+  <p>
+  Readability is the key to efficient test maintenance. A good test should communicate precisely 
+  which qualities are tested and how they are. 
+  </p><p>
+  This starts with the simple things like choosing good names for methods, variables and fields.
+  It should not be necessary to read the setup code to understand the nature of each subsidary
+  object and the role that it is intended to play.
+  </p><p>
+  Invest in good fixtures and don't be afraid to break out tests with dissimilar setups. 
+  Avoid verifying too much in each test. Fixtures which are too large and general
+  not only take a while to comprehend but also hide the link between cause and effect.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>This another large topic. See <a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a>
+  for more details.</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='testdouble'>Pattern - Test Double</a></h1>
 <blockquote>
 <p>
 "How can we verify logic independently when code it depends on is unusable?<br/>
