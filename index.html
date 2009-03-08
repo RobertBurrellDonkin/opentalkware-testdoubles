@@ -33,7 +33,7 @@ START META-DATA
 
 <!-- embedded styles -->
 <style type="text/css" media="all">
-
+div.cite {text-align: right; font-style: italic; font-family: monospace; font-size: smaller;}
 </style>
 
 <!-- S5 JS -->
@@ -211,6 +211,319 @@ END OF SLIDE
 
 
 
+<!-- 
+###############################################################################################
+#
+#
+# CATALOG
+#
+#
+###############################################################################################
+-->
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Term: System Under Test</h1>
+<blockquote>
+<p>
+"Software developers will probably find the term 'system under test' ... unfamiliar.<br/>
+It is short for 'whatever thing we are testing'."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+  <li>Abbreviated as SUT</li>
+  <li>But <code>subject</code> often works better when naming variables</li>
+</ul>
+<div class='handout'>
+  <p>
+  TODO:
+  </p>
+  <p>
+  A shorter name often preferrable to developers is <code>subject</code> or <code>subjectOfTest</code>.
+  This is most appropriate for finely grained tests which focus exclusively on a primary
+  class. 
+  </p>
+  <p>
+  Choosing good variable names means tests are more readable and maintainable. It is often not
+  immediately obvious from the context which object is the <abbr title='Subject Under Test'>SUT</abbr>.
+  Naming the variable referencing the SUT <code>subject</code> or <code>systemUnderTest</code> makes
+  this immediately clear to the reader.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Term: Fixture</h1>
+<blockquote>
+<p>
+"All the things we need to have in place to run a test and expect a particular outcome."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+
+<div class='handout'>
+  <p>
+  <em>Fixture</em> is one of those terms that's hard to define well. Different people and different tools
+  use it with subtly different shades of meaning. Following 
+  <a href='#xunittestpatterns'>Gerard Meszaros</a>, this talk uses it to mean the <em>test context</em>.
+  Those familar with <a href='#nunit'>NUnit</a> may find this usage a little unnatural.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>TODO: State Verification</h1>
+<ul class='incremental'>
+<li></li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Foo bar blah
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>TODO: Behaviour Verification</h1>
+<ul class='incremental'>
+<li></li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Foo bar blah
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Pattern - Test Double</h1>
+<blockquote>
+<p>
+"How can we verify logic independently when code it depends on is unusable?<br/>
+How can we avoid Slow Tests?<br/>
+We replace a component on which the SUT depends with a 'test specific equivalent'."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+
+<div class='handout'>
+  <p>
+  A test double is an imposter for a depended-upon-component. The double presents an API
+  compatible with the authentic dependency but differs in behaviour.
+  </p>
+  <p>
+  There are lots of reasons why test doubles might be used. 
+  Most of these will be covered in detail in later patterns.
+  </p>
+  <p>
+  Within a test, test doubles may be used for used for different purpose
+  and even the same double may play a number of roles. This means that it's very easy for
+  developers to loose clarity about the purpose of a particular double. This often leads
+  to unmaintainable, brittle tests. A consequence is that particular care needs to be taken
+  to ensure that tests involving doubles are clearly documented and understandable.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Pattern - Test Double:Test Stub</h1>
+<ul class='incremental'>
+<li></li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Foo bar blah
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+<!-- 
+###############################################################################################
+#
+#
+# EPILOGUE
+#
+#
+###############################################################################################
+-->
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Tools</h1>
+
+<ul>
+  <li>
+  <a name='nunit' href='http://www.nunit.org/'>NUnit</a> is an idiomatic <code>.NET</code>
+  unit testing framework
+  </li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Foo bar blah
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Reading</h1>
+
+<ul>
+  <li>
+  <a name='xunittestpatterns' href='http://xunitpatterns.com/'>xUnit Test Patterns: Refactoring Test Code</a> 
+  by <cite>Gerard Meszaros</cite>
+  </li>
+  <li>
+  <a name='refactoring' href='http://martinfowler.com/books.html#refactoring'>Refactoring: Improving the Design of Existing Code</a> 
+  by <cite>Martin Fowler</cite>
+  </li>
+  <li>
+  <a name='designpatterns' href='http://c2.com/cgi/wiki?DesignPatternsBook'>Design Patterns: Elements of Reusable Object-Oriented Software</a> 
+  by <cite>Erich Gamma</cite> <cite>Richard Helm</cite> <cite>Ralph Johnson</cite> <cite>John Vlissides</cite>
+  </li>
+</ul>
+
+<div class='handout'>
+  <p>
+  A huge debt is owed to <a href='#xunittestpatterns'>xUnit Test Patterns</a>. The design patterns, terminology and code smells
+  described are described and explained in that book. It's only possible to cover a small 
+  amount of the material contained in that comprehensive tome but hopefully your appetites may have been wet.
+  Buy the book.  
+  </p>
+  <p>
+  <a href='#designpatterns'>Design Patterns</a> needs no introduction. <a href='#refactoring'>Refactoring</a>
+  is another influential classic. Every developer should own a copy.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO</li>
+  <li>TODO</li>
+ </ul>
+</div>
+
+</div>
+<!--  
+END OF SLIDE 
+-->
 
 <!--  
 START OF ACKNOWLEDGEMENTS 
