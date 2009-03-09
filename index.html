@@ -293,6 +293,9 @@ There are a number of technical terms that must be agreed. Many of these are
 reasonably controversial, so it's worth stopping and talking about them to
 avoid later confusion.
   </p>
+  <p>
+Not every pattern is positive. An anti-pattern indicates a pattern to be avoided.
+  </p>
 </div>
 
 <div class="notes">
@@ -311,6 +314,68 @@ is a book that every developer should own.
 <!--  
 END OF SLIDE 
 -->
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Code Smells</h1>
+<blockquote>
+<p>
+"A code smell is a surface indication that usually corresponds to a deeper problem in the system"
+</p>
+</blockquote>
+<div class='cite'><p><a href='#codesmells'><cite>Code Smells</cite></a></p></div>
+
+<blockquote class='incremental'><p>If it stinks, change it.</p></blockquote>
+<div class='cite'><p class='incremental'><a href='#refactoring'><cite>Grandma Beck</cite></a><p></div>
+
+<ul class='incremental'>
+<li>A smell doesn't always indicate something's wrong...</li>
+<li>...but usually does</li>
+</ul>
+
+<div class='handout'>
+  <p>
+Code smells are neither patterns nor anti-patterns. They are not design structure
+reusable for good or ill. Code smells are not quite specific enough to be 
+diagnostic symptoms either: they are general symptoms which - when usually
+observed - indicate that there's problem somewhere or other. 
+  </p><p>
+Tracking down the root cause is sometimes easy, sometimes hard. It's not 
+unusual for a single cause to give rise to several smells. 
+  </p><p>
+There is a temptation to leave bad smells alone. Intuition says
+that there's something not right but - as a developer - you can probably
+justify it being someone else's problem. 
+  </p><p>
+This makes it a problem for
+management: it's commonly observed that a problem will smell fishy for
+quite a while before it finally becomes critical and necessitates
+action. 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>For more, see
+    <ul>
+      <li><a href='#codesmells'>Code Smells</a> (short)</li>
+      <li><a href='#refactoring'>Refactoring</a></li>
+      <li><a href='#xunittestpatterns'>xUnit Test Patterns</a> (comprehensive)</li>
+    </ul>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
 
 
 
@@ -1090,6 +1155,7 @@ START OF SLIDE
 <ul>
 <li><a name='bdd' href='http://dannorth.net/introducing-bdd'>Introducing BDD</a> by <cite>Dan North</cite></li>
 <li><a name='mocksarentstubs' href='http://martinfowler.com/articles/mocksArentStubs.html'>Mocks Aren't Stubs</a> by <cite>Martin Fowler</cite></li>
+<li><a name='codesmells' href='http://martinfowler.com/bliki/CodeSmell.html'>Code Smells</a> by <cite>Martin Fowler</cite></li>
 </ul>
 
 <div class='handout'>
@@ -1101,6 +1167,11 @@ of ideas into a couple of pages.
   Martin Fowler's <cite>Mocks Aren't Stubs</cite> is a good place start to reading about test doubles. On problem with 
   the BDD area is that it's technology lead. There are some great libraries but there's a tendency to apply them
   blindly without thought. Take a step back and think first.
+  </p>
+  <p>
+  <a href='#codesmells'>Code Smells</a> is a short - but definitive - description of the nature of a code smell.
+  <a href='#xunittestpatterns'>xUnit Test Patterns</a> and <a href='#refactoring'>Refactoring</a> devote much
+  more space to more detailed descriptions. Worth reading.
   </p>
 </div>
 
