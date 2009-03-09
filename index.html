@@ -676,6 +676,87 @@ END OF SLIDE
 
 
 
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Behaviour Smell: Slow Tests</h1>
+<blockquote>
+<p>
+"The tests take too long to run."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+  <li>Direct Costs To The Developer</li>
+  <li>Indirect Costs To The Project</li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Slow tests really are a killer. 
+  </p><p>
+  Though the cost of writing tests can be seen as an investment, the cost of waiting for tests 
+  to run is much harder. No manager - especially a senior one - likes to see a developer surfing 
+  the net, reading a paper or chatting with a collegue about the price of bread, even if it's 
+  just dead time whilst the tests are running. 
+  </p><p>
+  The indirect effects are often more insidious. They offer a strong disincentive to running 
+  the test suite regularly. In turn, this means that developers wait longer before integration
+  their code. 
+  </p><p>
+  Infrequent code integration is major cause of delays. Developers find themselves idle waiting
+  for other to commit code they rely on, or code is committed whilst they are waiting for the 
+  test suite to finish. The volume of code changed between runs of the test suite is larger,
+  making it more difficult to isolate which change caused the problem.
+  </p><p>
+  Slow tests are an area where <a href='#testdouble'>Test Doubles</a> can be of great value.
+  It's exceptionally rare (on modern machines, outside numeric computing) for the actual 
+  code to take long to execute. Typically, the time goes in heavyweight setup, tear down
+  and data access which involve IO or extensive object creation. By substituting light weight
+  doubles for heavy weight <abbr title='depended-on components'>DOCs</abbr>, is the easiest
+  way to reduce these costs. 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>
+Access to middleware or the data base is a very common cause of <cite>Slow Tests</cite>.
+    <ul>
+      <li>
+An overreliance on this kind of test may indicate an issues with developer test writing
+skill levels. More training may be required.
+      </li>
+      <li>
+It is generally best to separate out all tests of this kind and run them on a continuous
+integration server.
+      </li>
+      <li>
+Careful consideration should be given to the approach taken to integration testing. 
+For example, asking developers to write integration tests using standard unit testing 
+libraries may not be the most effect way to automate this kind of test.
+      </li>
+     </ul>
+  </li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--  
@@ -707,6 +788,27 @@ We replace a component on which the SUT depends with a 'test specific equivalent
   developers to loose clarity about the purpose of a particular double. This often leads
   to unmaintainable, brittle tests. A consequence is that particular care needs to be taken
   to ensure that tests involving doubles are clearly documented and understandable.
+  </p><p>
+  There are so many ways that Test Doubles are useful that this becomes the problem.
+  The reason why developers decided to use a test double - the role that it was 
+  intended to play - is often very hard to diagnose. 
+  </p><p>
+  Many <a href='#mocktools'>mocking</a> tools are versatile and powerful enough to 
+  create test doubles useful in a wide variety of situations. This often leads
+  to problems with 
+  <cite><a href='#hightestmaintenancecost'>High Test Maintenance Costs</a></cite>
+  unless the different roles are clearly understood by developers and clearly
+  documented in the test. 
+  </p><p>
+  When mixing <abbr title='Object Oriented'>OO</abbr>
+  <cite><a href='#behaviourverification'>Behaviour Verification</a></cite> with 
+  other <cite>Test Doubles</cite>, the same object may - at different times - be
+  playing different roles. At some times, it will just be feeding lines to the
+  subject but at others it will be actively monitoring the interaction.
+  </p><p>
+  A maintain needs to be understand which parts of the interaction are just scene
+  setting and which are crucial parts of the dialogue. It is all too easy just to 
+  lazily insist that all parts of the interaction are important.
   </p>
 </div>
 
