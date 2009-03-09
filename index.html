@@ -228,7 +228,7 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Term: System Under Test</h1>
+<h1><a name='sut'>Term: System Under Test</a></h1>
 <blockquote>
 <p>
 "Software developers will probably find the term 'system under test' ... unfamiliar.<br/>
@@ -320,21 +320,44 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>TODO: State Verification</h1>
-<ul class='incremental'>
-<li></li>
-</ul>
+<h1><a name='stateverification'>Pattern: State Verification</a></h1>
+<blockquote>
+<p>
+"How do we make tests self-checking when there is state to verify?<br/>
+We inspect the state of the system under test after it has been exercised
+and compare it to the expected state."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ol class='incremental'>
+  <li><a href='#fixture'>Fixture</a> is setup</li>
+  <li><a href='#sut'>Subject</a> is exercised</li>
+  <li><a href='#sut'>Subject</a>'s state is verified</li>
+</ol>
 
 <div class='handout'>
   <p>
-  Foo bar blah
+  This is the most frequently used verification strategy. 
+  </p>
+  <p>
+  There are a couple of notable variations covered in depth in 
+  <a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a>. They differ
+  in their approach to accessing the final state of the subject.
+  </p><p>
+  <cite>Procedural State Verification</cite> is probably the most familiar. Here,
+  repeated method calls are to make to discover the state.
+  </p><p>
+  <cite>Expected State Specification</cite> compares the subject with a instance
+  populated with the expected values. This leads to shorter assertions though 
+  sometimes the required fixture is complex. This is one area where a 
+  <a href='#testdouble'>Test Double</a> may be used.
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO</li>
-  <li>TODO</li>
+  <li>This is the style make famous by <a href='#testdrivendevelopment'>Test Driven Development</a>.
+Read it.</li>
  </ul>
 </div>
 </div>
@@ -359,19 +382,44 @@ to the expected behaviour."
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
 <ul class='incremental'>
-<li></li>
+  <li>Checks interactions, not state</li>
+  <li>Typically some sort of <a href='#testdouble'>Test Double</a> is used</li>
 </ul>
-
 <div class='handout'>
   <p>
-  Foo bar blah
+  Bahaviour verification checks the interactions between the subject and it's depended-on 
+  components. There are some important functions whose effect is not to change the state
+  of the object but to choreography a sequence of interactions. Inspecting the state
+  won't work in these cases.
+  </p><p>
+  Behaviour verification almost always uses some kind of <a href='#testdouble'>Test Double</a>.
+  And quite often of many kinds. Unless the creator of the test is careful to commuicate
+  clearly which behaviour is involved in verification, which in stimulation and which are
+  just scenary, behaviour verification can easily lead to 
+  <a href='#hightestmaintenancecosts'>High Test Maintenance Costs</a>.
+  </p><p>
+  There are a couple of notable approaches to behaviour verification.
+  </p><p>
+  <cite>Procedural Behaviour Verification</cite> captures method calls during
+  the interaction, and inspects them at the end.
+  </p><p>
+  <cite>Expected Behaviour Verification</cite> is configured with a description
+  of the required interactions and checks them as the test proceeds.
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO</li>
-  <li>TODO</li>
+  <li><abbr title='Behaviour Driven Development'><a href='#bdd'>BDD</a></abbr> 
+  played a similar to that played by <abbr title='Test Driven Development'>TDD</abbr>
+  in the evolution of state verification
+  </li>
+  <li>
+  Behaviour verification is less familiar to most developers than state verification.
+  Poor quality tests have a high long term cost. A general lack of practice means
+  that organisations starting to use behaviour testing should ensure they set
+  training time aside.
+  </li>
  </ul>
 </div>
 </div>
@@ -761,6 +809,9 @@ START OF SLIDE
   <a name='designpatterns' href='http://c2.com/cgi/wiki?DesignPatternsBook'>Design Patterns: Elements of Reusable Object-Oriented Software</a> 
   by <cite>Erich Gamma</cite> <cite>Richard Helm</cite> <cite>Ralph Johnson</cite> <cite>John Vlissides</cite>
   </li>
+  <li><a name='testdrivendevelopment' href='http://www.google.co.uk/books?id=gFgnde_vwMAC&printsec=frontcover&source=gbs_summary_r&cad=0'>Test-Driven Development: By Example</a> 
+  by <cite>Kent Beck</cite>
+  </li>
 </ul>
 
 <div class='handout'>
@@ -772,7 +823,8 @@ START OF SLIDE
   </p>
   <p>
   <a href='#designpatterns'>Design Patterns</a> needs no introduction. <a href='#refactoring'>Refactoring</a>
-  is another influential classic. Every developer should own a copy.
+  is another influential classic. <a href='#testdrivendevelopment'>Test Driven Development</a> is just about 
+  the best way to learn the basics of Agile development. Every developer should own a copy.
   </p>
 </div>
 
@@ -787,6 +839,52 @@ START OF SLIDE
 <!--  
 END OF SLIDE 
 -->
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Surfing</h1>
+<ul>
+<li><a name='bdd' href='http://dannorth.net/introducing-bdd'>Introducing BDD</a> by <cite>Dan North</cite></li>
+<li><a name='mocksarentstubs' href='http://martinfowler.com/articles/mocksArentStubs.html'>Mocks Aren't Stubs</a> by <cite>Martin Fowler</cite></li>
+</ul>
+
+<div class='handout'>
+  <p>
+Dan North's <a href='#bdd'>article</a> which introduced <cite>Behaviour Driven Development</cite> packs a huge number
+of ideas into a couple of pages.
+  </p>
+  <p>
+  Martin Fowler's <cite>Mocks Aren't Stubs</cite> is a good place start to reading about test doubles. On problem with 
+  the BDD area is that it's technology lead. There are some great libraries but there's a tendency to apply them
+  blindly without thought. Take a step back and think first.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+
+
 
 <!--  
 START OF ACKNOWLEDGEMENTS 
