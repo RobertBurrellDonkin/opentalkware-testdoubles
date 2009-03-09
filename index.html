@@ -1040,11 +1040,15 @@ END OF SLIDE
 -->
 
 
+
+
+
+
 <!--  
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Pattern - Test Double:Test Stub</h1>
+<h1><a name='teststub'>Test Double - Test Stub</a></h1>
 <ul class='incremental'>
 <li></li>
 </ul>
@@ -1066,6 +1070,79 @@ START OF SLIDE
 END OF SLIDE 
 -->
 
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Test Double - Fake Object</h1>
+<blockquote>
+<p>
+"How can we verify logic independently when depended-on objects<br/>
+cannot be used?<br/>
+How can we avoid Slow Tests?<br/>
+We replace a component that the SUT depends on with a much lighter-weight implementation."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+  <li>Fake Database</li>
+  <li>In-Memory Database</li>
+  <li>Fake Web Service</li>
+  <li>Fake Service Layer</li>
+</ul>
+
+<div class='handout'>
+  <p>
+A <em>Fake Object</em> is a lightweight implementation prividing similar functionality
+to the original at a reduced cost. Like a <a href='#teststub'>Test Stub</a>, it substitutes
+for a <a href='#doc'>DOC</a>. Whereas a <em>Test Stub</em> only sketches what little
+implementation is required, a <em>Fake Object</em> is an implementation.
+  </p>
+  <p>
+<cite>Fake Objects</cite> are generally underused for the main reason that they usually involve
+an investment upfront which is only gradually paid back over time. Unfortunately,
+usually when it becomes clear that a <em>Fake Object</em> is needed, the work required 
+will be multiplied by the number of existing tests that will need to be rewritten.
+  </p><p>
+This makes appropriate consideration of <em>Fake Objects</em> a management issue for
+Agile projects. Early in the project, when perhaps requirements and designs are 
+still too fluid, time assigned to the development of judicious <em>Fake Objects</em> 
+may well pay for itself may times over.
+  </p><p>
+Object source software is a great resource to mine when creating <em>Fake Objects</em>,
+not simply because there is no licensing to worry about but forking the source really cuts
+the effort required. Especially useful are embeddable server ideally with an in-memory
+mode. Typical use cases are cut-down servers of all kinds: web service, LDAP, SQL database.
+  </p>
+  <p>
+For projects with layered architectures, creating Fake service layers is often a good investment.
+Real implementations typically conceal a heavyweight system behind a slim Facade.
+This usually results in tests which are <a href='#slowtest'>quicker</a> and less
+<a href='#fragiletest'>fragile</a>.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>Some examples of embeddable open source software:
+    <ul>
+      <li><a href='http://www.mortbay.org/jetty/'>Jetty</a></li>
+      <li><a href='http://www.h2database.com/html/main.html'>H2 Database</a></li>
+      <li><a href='http://activemq.apache.org/'>ActiveMQ (JMS)</a></li>
+      <li><a href='http://directory.apache.org/'>Apache Directory (LDAP)</a></li>
+    </ul>
+  </li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
 
 
 <!-- 
