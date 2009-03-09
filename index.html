@@ -1097,7 +1097,7 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1><a name='teststub'>Test Double - Test Stub</a></h1>
+<h1><a name='teststub'>Test Double: Test Stub</a></h1>
 <blockquote>
 <p>
 "How can we verify logic independently when it depends on<br/>
@@ -1116,7 +1116,31 @@ desired inputs into the system under test."
 
 <div class='handout'>
   <p>
-  Foo bar blah
+  A <em>Test Stub</em> is a substitute for a <abbr title='Depended-on Component'><a href='#doc'>DOC</a></abbr>
+  injected to allow the fixture greater control over the indirect interactions of the <a href='#sut'>subject</a>.
+  It's often hard or impossible to persuade the authentic implementation to behaviour as required.
+  </p><p>
+  Using an authentic implementation may be <a href='#fragiletest'>Fragile</a>. If the behaviour of that object
+  (or some component it uses) changes, then it may not interact as expected by the test and so break it.
+  Providing the intent of the test was not to include the integration of these components then this
+  is an unexpected failure. 
+  </p><p>
+  When using authentic objects as stubs, it is useful to remember to document their purpose.
+  </p><p>
+  There are several common variations.
+  </p><p>
+  A <em>Responder</em> injects standard valid indirect inputs.
+  </p><p>
+  A <em>Saboteur</em> injects invalid indirect inputs. This allows error paths to be tested.
+  </p><p>
+  When developing inside-out (as is often encountered in <a href='#tdd'>TDD</a>), authentic
+  implementations may not be yet available for many 
+  <abbr title='Depended-on Component'><a href='#doc'>DOC</a></abbr>. A <em>Temporary Test Stub</em>
+  stands in for components which are yet to be created. Sometime, these will be replace by
+  authentic implementations later but often they are retained.
+  </p><p>
+  An <em>Entity Chain Snipper</em> is a special <em>Responder</em> which stubs out a complex
+  object graph for quicker <a href='#fixture'>Fixture</a> construction.
   </p>
 </div>
 
@@ -1140,7 +1164,7 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Test Double - Fake Object</h1>
+<h1>Test Double: Fake Object</h1>
 <blockquote>
 <p>
 "How can we verify logic independently when depended-on objects<br/>
