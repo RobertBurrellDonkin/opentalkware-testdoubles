@@ -1044,13 +1044,74 @@ END OF SLIDE
 
 
 
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Test Double: Dummy Object</h1>
+<blockquote>
+<p>
+"Dummy objects are passed around but never actually used. <br/>
+Usually they are just used to fill parameter lists.."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#mocksarentstubs'><cite>Martin Fowler</cite></a></p></div>
+
+<ul class='incremental'>
+<li>A Simple Dummy</li>
+<li>Too often overlooked</li>
+</ul>
+
+<div class='handout'>
+  <p>
+A <em>Dummy Object</em> is the simplest <a href='#testdouble'>Test Double</a>.
+It's just used to make up the numbers in the parameters and isn't expected to 
+be called.
+  </p><p>
+This expectation can - of course - cause problems for maintainability. It may 
+be that a required behaviour change means that a parameters will now be 
+called. Developers of tests should indicate clearly their intention
+and name appropriately. 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li><a href='#mocksarentstubs'>Mocks Aren't Stubs</li> explains the differences between
+  dummies, stubs and mocks well, though the use of language differs just a little</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
 <!--  
 START OF SLIDE 
 -->
 <div class="slide">
 <h1><a name='teststub'>Test Double - Test Stub</a></h1>
+<blockquote>
+<p>
+"How can we verify logic independently when it depends on<br/>
+indirect inputs from other software components?<br/>
+We replace a real object with a test-specific object that feeds the<br/>
+desired inputs into the system under test."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
 <ul class='incremental'>
-<li></li>
+<li>Variation: Responder</li>
+<li>Variation: Saboteur</li>
+<li>Variation: Temporary Test Stub</li>
+<li>Variation: Entity Chain Snipper</li>
 </ul>
 
 <div class='handout'>
@@ -1090,10 +1151,10 @@ We replace a component that the SUT depends on with a much lighter-weight implem
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
 <ul class='incremental'>
-  <li>Fake Database</li>
-  <li>In-Memory Database</li>
-  <li>Fake Web Service</li>
-  <li>Fake Service Layer</li>
+  <li>Variation: Fake Database</li>
+  <li>Variation: In-Memory Database</li>
+  <li>Variation: Fake Web Service</li>
+  <li>Variation: Fake Service Layer</li>
 </ul>
 
 <div class='handout'>
