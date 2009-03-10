@@ -1164,7 +1164,7 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Test Double: Fake Object</h1>
+<h1><a name='fake'>Test Double: Fake Object</a></h1>
 <blockquote>
 <p>
 "How can we verify logic independently when depended-on objects<br/>
@@ -1230,6 +1230,120 @@ END OF SLIDE
 -->
 
 
+
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='testspy'>Test Double: Test Spy</a></h1>
+<blockquote>
+<p>
+"How do we implement Behaviour Verification?<br/>
+How can we verify logic independently when it has indirect
+outputs to other software components?<br/>
+We use a Test Double to capture the indirect output calls<br/>
+made to another components by the SUT for later verification by the test."
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ol class='incremental'>
+  <li>Substitute a <em>Test Spy</em> for a <a href='#doc'>DOC</a></li>
+  <li>Exercise the <a href='#sut'>subject</a> whilst the <em>Test Spy</em> records</li>
+  <li>Verify the recorded interactions</li>
+</ol>
+
+<div class='handout'>
+  <p>
+  This is the first encounter with a <a href='#testdouble'>Test Double</a> that is used
+  only for <a href='#behaviourverification'>Behaviour Verification</a>. Though 
+  <em>Behaviour Verification</em> is popularly associated with  
+  <a href='#mockobject'>Mock Object</a>, this is not the only possible approach.
+  <em>Test Spies</em> have been around a lot longer than <em>Mock Objects</em>.
+  </p><p>
+The essential idea is easy:
+  </p>
+  <ol>
+    <li>
+Develop a <em>Test Spy</em> that can be substituted
+for a <abbr title='depended-on object'><a href='#doc'>DOC</a></abbr> and which
+records interactions of interest
+    </li>
+    <li>
+    Exercise the <a href='#sut'>subject</a> whilst the <em>Test Spy</em> records
+    </li>
+    <li>
+    Verify the results
+    </li> 
+  </ol>
+  <p>
+  This sequence should be familiar to those developers who use 
+  <a href='#stateverification'>State Verification</a> which may be of some advantage.
+  However, in general <em>Behavioural Verification</em> is sufficiently different
+  to warrent training for anyone who isn't familiar with it.
+  </p><p>
+<em>Test Spies</em> are typically hand crafted and used sparingly since (in most
+<abbr title='Object Oriented'>OO</abbr> languages) there seem to be difficulties
+making them into good libraries. When used in this way, tests seem to be more
+readable (though this may have more to do with the care that was taken and time
+invested rather than anything innate about this approach).
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='mockobject'>Test Doubles: Mock Objects</a></h1>
+<ul class='incremental'>
+<li>TODO: Content</li>
+</ul>
+
+<div class='handout'>
+  <p>
+  TODO:
+  Foo bar blah
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+
+<!--  
+END OF SLIDE 
+-->
 <!-- 
 ###############################################################################################
 #
