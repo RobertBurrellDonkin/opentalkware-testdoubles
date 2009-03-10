@@ -1051,7 +1051,7 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>Test Double: Dummy Object</h1>
+<h1><a name='dummy'>Test Double: Dummy Object</a></h1>
 <blockquote>
 <p>
 "Dummy objects are passed around but never actually used. <br/>
@@ -1416,6 +1416,111 @@ END OF SLIDE
 -->
 
 
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Mock Object Toolkits...</h1>
+<p>The Swiss Army Knife of Developer Testing</p>
+<ul class='incremental'>
+  <li>Lots Of Different <a href='tools'>Types</a></li>
+  <li>It's Powerful</li>
+  <li>It's Flexible</li>
+  <li>It's Dangerous...</li>
+  <li>...to the unwary</li>
+</ul>
+
+<div class='handout'>
+  <p>
+  <em>Mock Object Toolkits</em> make it easy and quick to create <a href='#testdouble'>Test Doubles</a>.
+  </p>
+  <p>
+Though developed specifically for <a href='#behaviourverification'>Behaviour Verification</a>
+using <a href='#mockobject'>Mock Objects</a>, 
+the modern Mock Object toolkit is the Swiss Army Knife of developer testing.
+  </p>
+  <ul>
+    <li>
+Like a Swiss Army Knife, there are lots of different types, each claiming to be the original and best. 
+    </li><li>
+Like a Swiss Army Knife it is powerful at it's basic function (<em>Behaviour Verification</em>)
+    </li><li>
+Like a Swiss Army Knife it is flexible enough to be used in a number of roles  
+    </li><li>
+Like a Swiss Army Knife it is dangerous in the hands of anyone doesn't know enough to use it safely
+    </li>
+  </ul>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>...Make Every Test Double A Mock Object</h1>
+<ul class='incremental'>
+  <li>Obscuring The Intent</li>
+  <li>Increases Fragility</li>
+  <li>And Traps The Unwary!</li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Once a developer knows a <em>Mock Object Toolkit</em> well, the temptation is to save time by
+  using it for every test.
+  </p><p>
+  The problem is that though <em>Mock Object Toolkits</em> make it easy to make <em>Test Doubles</em>
+  they make every kind of <em>Test Double</em> act as a <a href='#mockobject'>Mock Object</a>.
+  <a href='#teststub'>Stubs</a>, <a href='#dummy'>dummies</a> and <a href='#fake'>fakes</a> fill
+  different roles in the drama. This <a href='#obscure'>obscures</a> the intention of the test
+  by hiding the behaviour being verified, and makes the test more <a href='#fragiletest'>fragile</a>
+  by extending the number of behaviour changes that break the test beyond the minimum intended 
+  to be tested.
+  </p><p>
+  In the end, though, it's simply a question of poor test quality. Toolkits are just tools. 
+  Similar mistakes are often seen when <em>Mock Object Toolkits</em> are used. 
+  </p><p>
+  Developers can study patterns, learn how to analyse their tests and name appropriately. 
+  They can invest in good fixture to allow good coverage to be easily coded. They can clearly 
+  document their intentions.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
 
 
 
