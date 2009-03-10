@@ -665,6 +665,60 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
+<h1>And Introducing</h1>
+<ul class='incremental'>
+  <li>The Supporting Cast</li>
+  <li>All Those Other Objects
+    <ul class='incremental'>
+      <li>Think About Roles...</li>
+      <li>...And communicate them clearly</li>
+      <li>Names Follow Role Not Nature</li>
+    </ul>
+  </li>
+</ul>
+
+<div class='handout'>
+  <p>
+It is rare that good test coverage can be achieved by a monologue involving the subject alone.
+Testing complex objects may involve a cast of dozens.
+  </p><p>
+Thinking about the roles filled by these supporting objects will help to write tests
+which are less fragile and more comprehensable: in short, more maintainable. In most cases, the role
+filled by a member of the supporting cast will map well to an existing pattern. This should
+lead to an understanding of the tradeoffs inherant and to a good naming scheme.
+  </p><p>
+Understanding a test with a large cast takes time. But unhelpful naming of fields and variables
+turns this chore into a difficult problem. Any modern IDE will be able to easily inform the user
+of the nature of an object. It cannot communication intent. The role that the object plays 
+should be communicated in detail by the name. 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>
+  When a natural mapping does not appear, this should be a warning sign. Perhaps the test is overambitious
+and could be refactored into several simpler tests. Perhaps, the intention of the test in the developer's
+mind is not sufficiently clear, and a rethink would be useful. Perhaps a <a href='#xunittestpatterns'>book</a>
+needs to consulted. 
+  </li>
+  <li>
+If this is one of rare erratic cases, then extra documentation and care should be invested to ensure
+that the reader understand the design approach taken.
+  </li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
 <h1>TODO: SLIDE TITLE</h1>
 <ul class='incremental'>
 <li>TODO: Content</li>
