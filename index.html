@@ -1350,6 +1350,77 @@ END OF SLIDE
 
 
 
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Test Doubles: Implementation Patterns</h1>
+<blockquote>
+<p>
+"How do we tell a Test Double what to return or expect?"
+</p>
+</blockquote>
+<div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<p>A Question Of Reusability</p>
+<ul class='incremental'>
+<li>Hard Coded Test Double</li>
+<li>Configurable Test Double</li>
+</ul>
+
+<div class='handout'>
+  <p>
+  Reusability is the key difference between the two main implementation categories. A hard coded
+  double is really tied to a limited number of tests sharing similar fixtures. Configurable]
+  doubles can be reused more widely, at the expense of the added complexity which comes from 
+  their lack of specivity.
+  </p>
+  <p>
+  There are quite a few ways commonly used to create <em>Test Doubles</em>.  For discussions of their
+  merits see <a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a>.
+  </p>
+  <ul>
+  <li>Hard Coded
+    <ul>
+      <li>A standalone class</li>
+      <li>A subclass of the authentic <abbr title='Depended-On Component'><a href='#doc'>DOC</a></abbr></li>
+      <li>The test class itself</li>
+      <li>An inner class of the test class</li>
+    </ul>
+  </li>
+  <li>Configurable by
+    <ul>
+      <li>A configuration mode allowing the test to teach what to expect</li>
+      <li>An API</li>
+      <li>Hand crafted custom implementation</li>
+      <li>Static generation</li>
+      <li>Dynamic generation</li>
+    </ul>
+  </li>
+  </ul>
+  <p>
+  Not only are there quite a number of different roles filled by <em>Test Doubles</em> but there
+  are lots of differents way to implement them. Most combinations of implementation strategy and
+  role are possible.
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
 
 <!--  
 END OF SLIDE 
