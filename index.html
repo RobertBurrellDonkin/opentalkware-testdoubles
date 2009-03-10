@@ -720,15 +720,51 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>TODO: SLIDE TITLE</h1>
+<h1>The Roles Objects Play</h1>
 <ul class='incremental'>
-<li>TODO: Content</li>
+<li class='incremental'><em>Dummies</em>
+  <ul>
+    <li>Extras</li>
+    <li>Verifying Interactivity Is Not The Intention</li>
+  </ul>
+</li>
+<li class='incremental'><em>Stubs</em>
+  <ul>
+    <li>Minor characters</li>
+    <li>Stubs feed indirect input to the subject</li>
+    <li>Stubs should not upstage the stars</li>
+    <li>Comment <em>How</em></li>
+  </ul>
+</li>
+<li class='incremental'><em>Mocks And Spies</em>
+  <ul>
+    <li>Major Protagonists</li>
+    <li>Observe the behaviour of the subject</li>
+  </ul>
+</li>
 </ul>
 
 <div class='handout'>
   <p>
-  TODO:
-  Foo bar blah
+Time to take a deeper a look at common roles, and introduce the <em>Test Doubles</em>
+patterns associated with them.
+  </p>
+  <p>
+A dummy is just part of the scenary. It is not called upon to interact with the protagonists but is
+need to be there. A <em>Dummy Object</em> is a <em>Test Double</em> that just plays the role of a 
+place holder. If the authentic object is slow or difficult to create then substitution is generally
+a good idea.
+  </p><p>
+Verifying interactivity with a dummy is not the intention of the test. So, it is safe to fix
+any breakages which occur by simply ensuring that the dummy does not fall down. So, it's best to clearly
+indicate any dummy instances through naming.
+  </p><p>
+  Stubs should not upstage the stars. They exist just to ensure that the subject is fed with the 
+  correct stimuli required by the test. Otherwise, they should robustly handle behaviour change.
+  Since stubs play an important role in the test, they should be readily identifiable through naming.
+  The input fed - and it's purpose - should also be clearly communicated.
+  </p><p>
+  Substituting authentic stubs by a <em>Test Double</em> is very common for a variety of reasons. 
   </p>
 </div>
 
@@ -756,7 +792,7 @@ START OF SLIDE
 <div class="slide">
 <h1>But What Is A Unit Test?</h1>
 <ul class='incremental'>
-<li>Back after the break...</li>
+<li>Back with the catalog after the break...</li>
 </ul>
 
 <div class="notes">
