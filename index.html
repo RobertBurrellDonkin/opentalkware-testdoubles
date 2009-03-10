@@ -1322,14 +1322,17 @@ it is being used correctly by the SUT."
 </p>
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
-<ul class='incremental'>
-<li>TODO: Content</li>
-</ul>
+<ol class='incremental'>
+<li>Expectations before, not verification after</li>
+</ol>
 
 <div class='handout'>
   <p>
-  TODO:
-  Foo bar blah
+  <em>Mock Objects</em> are used a little differently. Unlike a <a href='#testspy'>Test Spy</a>
+  which just records what goes on, a <em>Mock Object</em> is loaded with expectations before
+  the test runs and verifies interactions as the test proceeds to exercise the <a href='#sut'>subject</a>.
+  When the exercise has finished, a final call allows the test to fail if any interactions have been
+  missed.
   </p>
 </div>
 
