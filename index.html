@@ -42,6 +42,9 @@ div.partition h1  {position: static; margin: 0.5em 0 0; padding: 0;
    font: bold 2em Helvetica, sans-serif; white-space: normal;
    color: #000; background: transparent;}
 div.partition h2 {font: bold italic 1em Helvetica, sans-serif;}
+
+/*  */
+blockquote.about {margin: 2em 2em 3em 0em}
 </style>
 
 <!-- S5 JS -->
@@ -95,7 +98,7 @@ START PREFACE
 START OPEN CONTENT ONLY
 Derivative works which are not open content should remove the follow 
 -->
-<h4>This is <a href="http://www.opentalkware.org/" rel="external">OpenTalkWare</a></h4>
+<h4>This is OpenTalkWare</h4>
 <!-- 
 END OPEN CONTENT ONLY
 -->
@@ -268,7 +271,7 @@ START OF SLIDE
 -->
 <div class="slide">
 <h1>What Is This Talk About?</h1>
-<blockquote>
+<blockquote class='about'
 <p class='incremental'>
 This is a talk about the tests that developers write, <br/>
 and how - as developers - we can write better tests.
@@ -356,7 +359,7 @@ and how - as developers - we can write better tests.
     <ul class='incremental'>
       <li>A reusable design structure</li>
       <li>(Not a good definition but short)</li>
-      <li>Well get back to this later</li>
+      <li>We'll return to this later</li>
     </ul>
   </li>
   <li>Design Patterns Create A Language</li>
@@ -675,7 +678,11 @@ START OF SLIDE
       <li>Names Follow Role Not Nature</li>
     </ul>
   </li>
-  <li><em>Test Doubles</em> may substitute for any members of the cast</li>
+  <li><em>Test Doubles</em> may substitute for any member of the cast
+    <ul class='incremental'>
+       <li>Communicate clearly the role each is playing</li>
+    </ul>
+  </li>
 </ul>
 
 <div class='handout'>
@@ -721,28 +728,11 @@ START OF SLIDE
 -->
 <div class="slide">
 <h1>The Roles Objects Play</h1>
-<ul class='incremental'>
-<li class='incremental'><em>Dummies</em>
-  <ul>
+<h2>Dummies</h2>
+  <ul class='incremental'>
     <li>Extras</li>
     <li>Verifying Interactivity Is Not The Intention</li>
   </ul>
-</li>
-<li class='incremental'><em>Stubs</em>
-  <ul>
-    <li>Minor characters</li>
-    <li>Stubs feed indirect input to the subject</li>
-    <li>Stubs should not upstage the stars</li>
-    <li>Comment <em>How</em></li>
-  </ul>
-</li>
-<li class='incremental'><em>Mocks And Spies</em>
-  <ul>
-    <li>Major Protagonists</li>
-    <li>Observe the behaviour of the subject</li>
-  </ul>
-</li>
-</ul>
 
 <div class='handout'>
   <p>
@@ -758,7 +748,44 @@ a good idea.
 Verifying interactivity with a dummy is not the intention of the test. So, it is safe to fix
 any breakages which occur by simply ensuring that the dummy does not fall down. So, it's best to clearly
 indicate any dummy instances through naming.
-  </p><p>
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
+
+
+
+
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>The Roles Objects Play</h1>
+<h2>Stubs</h2>
+  <ul class='incremental'>
+    <li>Minor characters</li>
+    <li>Stubs feed indirect input to the subject</li>
+    <li>Stubs should not upstage the stars</li>
+    <li>Comment <em>How</em></li>
+  </ul>
+
+<div class='handout'>
+  <p>
   Stubs should not upstage the stars. They exist just to ensure that the subject is fed with the 
   correct stimuli required by the test. Otherwise, they should robustly handle behaviour change.
   Since stubs play an important role in the test, they should be readily identifiable through naming.
@@ -781,6 +808,48 @@ END OF SLIDE
 
 
 
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>The Roles Objects Play</h1>
+<h2>Mocks And Spies</h2>
+  <ul class='incremental'>
+    <li>Major Protagonists</li>
+    <li>Observe the behaviour of the subject
+        <ul class='incremental'>
+          <li>Used for <a href='#behaviourverification'>Behaviour Verification</a></li>
+          <li>Mock Or Stub? An object may play different roles...</li>
+        </ul>
+    </li>
+  </ul>
+</li>
+</ul>
+
+<div class='handout'>
+  <p>
+Mocks and spies differ in their approach to verification. Mocks are loaded 
+with expectations during the test setup which they verify as the subject is
+exercised by the test. Spies simply record interactions. In the verification
+phase of the test, the records can be checked by the test.
+  </p><p>
+It is quite common that a mock or a spy will need to act as a stub, supplying
+indirect stimulation to the subject. This is a frequent cause of confusion.
+Tests which do not clearly communicate which interactions are intended to be
+verified and which are just exercise the <a href='#sut'>suject</a> 
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>TODO:</li>
+  <li>TODO:</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
 
 
 
@@ -997,11 +1066,9 @@ It is short for 'whatever thing we are testing'."
 <ul class='incremental'>
   <li>Abbreviated as SUT</li>
   <li>But <code>subject</code> often works better when naming variables</li>
+  <li>A test should clearly communicate the identity of the SUT</li>
 </ul>
 <div class='handout'>
-  <p>
-  TODO:
-  </p>
   <p>
   A shorter name often preferrable to developers is <code>subject</code> or <code>subjectOfTest</code>.
   This is most appropriate for finely grained tests which focus exclusively on a primary
@@ -1183,7 +1250,7 @@ START OF SLIDE
 <h1><a name='behaviourverification'>Pattern: Behaviour Verification</a></h1>
 <blockquote>
 <p>
-"How Do we make tests self-checking when there is no state to verify?.<br/>
+"How do we make tests self-checking when there is no state to verify?.<br/>
 We capture the indirect outputs of the SUT as they occur and compare them 
 to the expected behaviour."
 </p>
@@ -1314,8 +1381,8 @@ START OF SLIDE
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
 <ul class='incremental'>
-  <li class='incremental'>Caused by:
-    <ul>
+  <li>Caused by:
+    <ul class='incremental'>
       <li>
   Lazy Test Coding
       </li>
@@ -1324,8 +1391,8 @@ START OF SLIDE
       </li>
     </ul>
   </li>
-  <li class='incremental'>Leads to:
-    <ul>
+  <li>Leads to:
+    <ul class='incremental'>
       <li><a href='#fragiletest'>Fragile Tests</a></li>
       <li><a href='#obscuretest'>Obscure Tests</a></li>
     </ul>
@@ -1381,8 +1448,8 @@ START OF SLIDE
 <h1><a name='fragiletest'>Behaviour Smell - Fragile Test</a></h1>
 <blockquote>
 <p>
-"A text fails to compile or run when the SUT is changed in ways 
-that do not affect the part the text is exercising."
+"A test fails to compile or run when the SUT is changed in ways 
+that do not affect the part the test is exercising."
 </p>
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
@@ -1451,7 +1518,7 @@ START OF SLIDE
 <li>
 Do the basics well
 </li>
-
+<li>A test is a drama so tell the story</li>
 </ul>
 
 <div class='handout'>
@@ -1580,6 +1647,10 @@ We replace a component on which the SUT depends with a 'test specific equivalent
 </p>
 </blockquote>
 <div class='cite'><p><a href='#xunittestpatterns'><cite>xUnit Test Patterns</cite></a></p></div>
+<ul class='incremental'>
+  <li>A <em>Test Double</em> substitutes for an authentic DOC</li>
+  <li>There are lots of reasons why a <em>Test Double</em> might be used</li>
+</ul>
 
 <div class='handout'>
   <p>
@@ -2026,9 +2097,9 @@ START OF SLIDE
 <p>The Swiss Army Knife of Developer Testing</p>
 <ul class='incremental'>
   <li>Lots Of Different <a href='tools'>Types</a></li>
-  <li>It's Powerful</li>
-  <li>It's Flexible</li>
-  <li>It's Dangerous...</li>
+  <li>Powerful</li>
+  <li>Flexible</li>
+  <li>Dangerous...</li>
   <li>...to the unwary</li>
 </ul>
 
@@ -2077,11 +2148,10 @@ END OF SLIDE
 START OF SLIDE 
 -->
 <div class="slide">
-<h1>...Make Every Test Double A Mock Object</h1>
+<h1>...Toolkits Make Every Test Double A Mock Object</h1>
 <ul class='incremental'>
-  <li>Obscuring The Intent</li>
-  <li>Increases Fragility</li>
-  <li>And Traps The Unwary!</li>
+  <li>Obscuring Intent</li>
+  <li>Increasing Fragility</li>
 </ul>
 
 <div class='handout'>
@@ -2121,6 +2191,30 @@ END OF SLIDE
 
 
 
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<blockquote>
+<p>
+This is a talk about the tests that developers write, <br/>
+and how - as developers - we can write better tests.
+</p>
+</blockquote>
+
+<div class="notes">
+ <ul>
+  <li>Space for audience participation</li>
+ </ul>
+</div>
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
 
 
 <!--  
@@ -2129,8 +2223,7 @@ START OF SLIDE
 <div class="slide">
 <h1>So, What Is A Unit Test?</h1>
 <ul class='incremental'>
-<li>Oh My!</li>
-<li>Time's Beaten Us...</li>
+<li>Sadly, time's beaten us...</li>
 </ul>
 
 <div class='handout'>
@@ -2181,68 +2274,6 @@ END OF SLIDE
 ###############################################################################################
 -->
 
-
-<!--  
-START OF SLIDE 
--->
-<div class="slide">
-<h1>Tools</h1>
-
-<ul>
-  <li>
-  <a name='nunit' href='http://www.nunit.org/'>NUnit</a> is an idiomatic <code>.NET</code>
-  unit testing framework
-  </li>
-</ul>
-
-<div class='handout'>
-  <p>
-  Foo bar blah
-  </p>
-</div>
-
-<div class="notes">
- <ul>
-  <li>TODO</li>
-  <li>TODO</li>
- </ul>
-</div>
-
-</div>
-<!--  
-END OF SLIDE 
--->
-
-
-<!--  
-START OF SLIDE 
--->
-<div class="slide">
-<h1><a name='mocktools'>Tools - Mocking Libraries</a></h1>
-
-<ul>
-  <li>
-  TODO:
-  </li>
-</ul>
-
-<div class='handout'>
-  <p>
-  Foo bar blah
-  </p>
-</div>
-
-<div class="notes">
- <ul>
-  <li>TODO</li>
-  <li>TODO</li>
- </ul>
-</div>
-
-</div>
-<!--  
-END OF SLIDE 
--->
 
 
 
@@ -2310,7 +2341,7 @@ START OF SLIDE
 <li><a name='mocksarentstubs' href='http://martinfowler.com/articles/mocksArentStubs.html'>Mocks Aren't Stubs</a> by <cite>Martin Fowler</cite></li>
 <li><a name='codesmells' href='http://martinfowler.com/bliki/CodeSmell.html'>Code Smells</a> by <cite>Martin Fowler</cite></li>
 <li><a href='http://www.jroller.com/robertburrelldonkin/entry/tdd_mocks_fakes_stubs'> The Language Of Testing: Dummies, Mocks, Fakes And Stubs</a> 
-By <cite>Robert Burrell Donkin</cite></li>
+<br/>By <cite>Robert Burrell Donkin</cite></li>
 <li><a href='http://www.jroller.com/robertburrelldonkin/entry/mocking_stubs_jmock_considered_harmful'>JMock: Good But Could Do Better</a>
 By <cite>Robert Burrell Donkin</cite></li>
 </ul>
@@ -2350,6 +2381,73 @@ END OF SLIDE
 
 
 
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1>Tools</h1>
+
+<ul>
+  <li>
+  <a name='nunit' href='http://www.nunit.org/'>NUnit</a> is an idiomatic <code>.NET</code>
+  unit testing framework
+  </li>
+  <li>
+  <a name='junit' href='http://junit.org/'>JUnit</a> is an idiomatic <code>Java</code>
+  unit test framework.
+  </li>
+</ul>
+
+<div class='handout'>
+  <p>
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>Opportunity for audience participation, if time allows<li>
+ </ul>
+</div>
+
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+<!--  
+START OF SLIDE 
+-->
+<div class="slide">
+<h1><a name='mocktools'>Mocking Toolkits</a></h1>
+<!--
+<ul>
+  <li>
+  <a href='http://jmock.org' name='jmock'>JMock</a>
+  </li>
+  <li>...</li>
+</ul>
+-->
+<div class='handout'>
+  <p>
+  Foo bar blah
+  </p>
+</div>
+
+<div class="notes">
+ <ul>
+  <li>Opportunity for audience participation</li>
+ </ul>
+</div>
+
+</div>
+<!--  
+END OF SLIDE 
+-->
+
+
+
+
 
 
 <!--  
@@ -2358,7 +2456,8 @@ START OF ACKNOWLEDGEMENTS
 <div class="slide">
 <h1>Thanks</h1>
 <ul>
-<li>TODO: Content</li>
+<li>For listening</li>
+<li>For inviting me</li>
 <li><a name='S5'>
 <!-- 
 START ATTRIBUTION 
