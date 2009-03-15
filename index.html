@@ -247,16 +247,34 @@ START OF SLIDE
 </ul>
 <div class='handout'>
   <p>
+  It is conventional to start with something like this. 
+  so, here it is. But that's not really what this talk's
+  about so answer not included.
+  </p><p>
   This the start of a running gag with a serious side.
   Describing a unit test is easy but definition is not.
   Though there's agreement about the core, the edges
   are definitely blurred.
+  </p><p>
+  This perspective leads to an emphasis on process, not
+  product. When <em>Driven Development</em> (of whatever
+  flavour) was young - and the concepts felt novel - this
+  was important. Now, there is a beginning of a backlash
+  against the process due - in most part - to bad technique.
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
+  <li>One of the themes of this talk is that developers too often write tests 
+      without investing thinking time. The habit of TDD by joining the dots
+      is easy to slip into: <em>one test case for a class, and one test per method</em>.
+      Reread <a href='#testdrivendevelopment'>Test Driven Development</a>, this time
+      paying attention to the skill used to select the examples. Few objects in the wild
+      will require as little setup.
+  </li>
+  <li>Throwing open this question works well</li>
+  <li>This talk aims to encourage interaction. Good to start early.</li>
  </ul>
 </div>
 </div>
@@ -280,12 +298,23 @@ and how - as developers - we can write better tests.
 <div class='handout'>
   <p>
   Instead, let's concentrate on the function of this talk.
+  </p><p>
+  It assumed too often that fantastic coders just need to be
+  asked and will write great tests with no experience of the domain
+  necessary. Writing high quality test code is challenging and
+  skills improve with practice and experience. 
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
+  <li>It's about technique</li>
+  <li>
+Most people associate <em>Test Double</em> with <em>Behaviour Driven Development</em>.
+So, talking about <a href='#mockobjects'>Mock Objects</a> is a place to start.
+Many people find <em>Mocks</em> difficult, but this is part of wider problems
+with doubles and are easier to understand as special cases.  
+  </li>
  </ul>
 </div>
 </div>
@@ -317,10 +346,9 @@ Developers test. Creating perfect code first time, every time is a rare
 gift indeed. Most developers make mistakes - and usually plenty of mistakes.
 So, most developers do some testing of the code they write before it ships.
   </p><p>
-Though testing is as old as programming, test automation is newer. There are
-many reasons why developers automate tests. One important one is manual tests
-require the developer to be paying attention whereas automated tests allow 
-more time for other activities.
+Though testing is as old as programming, test automation by developers is newer. 
+There are many reasons why developers automate tests. For example, it's easier and
+quickly to rerun an automated test than a manual one.
   </p><p>
 And another chance to air the running gag.
   </p>
