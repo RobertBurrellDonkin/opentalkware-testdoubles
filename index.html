@@ -315,6 +315,13 @@ So, talking about <a href='#mockobjects'>Mock Objects</a> is a place to start.
 Many people find <em>Mocks</em> difficult, but this is part of wider problems
 with doubles and are easier to understand as special cases.  
   </li>
+  <li>
+It's not unusual for developers to feel a little iffy and unsure about
+<a href='#behaviourverification'>Behaviour Verification</a>. This is understandable but
+- as a technique - it is an important one. Typically, it is used less frequently than
+<a href='#stateverification'>State Verification</a> but mastering in context allows
+judicious use when other techniques would result in poor quality tests.
+  </li>
  </ul>
 </div>
 </div>
@@ -486,7 +493,7 @@ and how - as developers - we can write better tests.
 
 <div class="notes">
  <ul>
-  <li>More audience participation</li>
+  <li>Change for audience participation: ask about how knows each process.</li>
  </ul>
 </div>
 </div>
@@ -513,6 +520,9 @@ START OF SLIDE
 <div class="notes">
  <ul>
   <li>Let's try for another cheap laugh</li>
+  <li>This marks a transition between a preamble aimed at warming the
+  audience up and reminding everyone about some concepts that'll be used,
+  and the first main exposition.</li>
  </ul>
 </div>
 </div>
@@ -547,16 +557,25 @@ in place of code examples.
 <p>
 This quote is a good starting point:
 </p>
+<blockquote>
+<p>
 The Test is just a stage,<br/>
 And all the objects merely players:<br/>
 They have their exits and their entrances;<br/>
 And one instance in it's time plays many parts<br/>
-(With Apologies to Bill S.)
+</p>
+</blockquote>
+<div class='cite'><p><cite>With Apologies to The Bard</cite></p></div>
+<p>
+This metaphor offers some valuable insights. A test should convey a story
+about the objects involved. When testing is a struggle, return to this metaphor
+and ask: <em>what is the story and what roles are the objects playing within it?</em>
+</p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>Rather than code example, this metaphor will form an illustration</li>
+  <li>Rather than using code examples, this metaphor will form an illustration</li>
  </ul>
 </div>
 </div>
@@ -581,6 +600,10 @@ START OF SLIDE
 
 <div class='handout'>
   <p>
+This analogy is the conventional introduction to <a href='#testdouble'>Test Doubles</a>.
+It is a useful way to comprehend the basic idea but to understand some of the subtles,
+other metaphors are needed.
+  </p><p>
 An analogy that's sometimes used for a <em>Test Double</em> is a stunt man. This fails
 to convey some of the subtleties but it's a reasonable place to start. In a film, when 
 a dangerous stunt is required, the actor may be substituted by a stunt man
@@ -597,7 +620,7 @@ metaphor.
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
+  <li>Audience participation: ask for reasons</li>
  </ul>
 </div>
 </div>
