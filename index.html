@@ -742,6 +742,19 @@ Readers should not have remember the name of the test or look back at the setup 
 fixture to understand which object is the subject. Adopt a simple logical naming convention
 - call the system under test <em>subject</em> or <em>systemUnderTest</em>, say - and make
 sure every test sticks to it.
+  </p><p>
+Thinking about the <em>subject</em> as the hero of a drama helps to appreciate the 
+central nature of this role. The test is about the subject, and should verify only 
+the subject as it interacts with the other objects. A test will be 
+<a href='#fragiletest'>fragile</a> if changes in behaviour of these other objects
+cause tests of the <em>subject</em> to fail. 
+</p><p>
+This is one way that <em>Test Doubles</em> are often used. Using a double in the test
+allows the behaviour to be isolated from the authentic original. When using doubles
+in this ways, it is crucial to focus on the intent of the test and decide which 
+interactions are relevant to that intent. It may be tempting to verify other qualities
+so that the test will fail when either player deviates from the script but this is 
+a classic cause of <em>Fragile Tests</em> when using <em>Test Doubles</em>.
   </p>
 </div>
 
@@ -848,14 +861,26 @@ a good idea.
   </p><p>
 Verifying interactivity with a dummy is not the intention of the test. So, it is safe to fix
 any breakages which occur by simply ensuring that the dummy does not fall down. So, it's best to clearly
-indicate any dummy instances through naming.
+indicate any <em>Dummy</em> instances through naming.
+  </p><p>
+An actor may interact with an extra: play off them. A good extra will take this in their stride.
+In a test, whenever a <em>Dummy</em> is used, it needs to respond reasonably to novel interactions. 
+By definition, all interactions with the <em>Dummy</em> are outside the scope of the test.
+If the intent of the test is to demonstrate that no interaction occurs then a dummy should not be used.
+Interactions unforeseen when the test was created should not result in a test failure.
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>
+<a href='#mocktools'>Mock Toolkit</a>'s are an easy way to create a <em>Dummy</em> 
+(more about these later).
+Most toolkits default to verification of all behaviour. This will result in a 
+<a href='#fragiletest'>Fragile Test</a> where any novel interaction with the dummy 
+will result in a test failure. Learn how to alter this default before using
+the toolkit to create <em>Dummies</em>.
+  </li>
  </ul>
 </div>
 </div>
@@ -889,17 +914,35 @@ START OF SLIDE
   <p>
   Stubs should not upstage the stars. They exist just to ensure that the subject is fed with the 
   correct stimuli required by the test. Otherwise, they should robustly handle behaviour change.
-  Since stubs play an important role in the test, they should be readily identifiable through naming.
-  The input fed - and it's purpose - should also be clearly communicated.
   </p><p>
-  Substituting authentic stubs by a <em>Test Double</em> is very common for a variety of reasons. 
+  Since stubs play an important role in the test, they should be readily identifiable through naming.
+  The input fed - and it's purpose - should also be clearly communicated. So, comment the 
+  <em>How</em> in-code.
+  </p><p>
+  In a drama, the minor characters should not upstage the stars. They have lines to feed to the
+  main protagonists but should not break down when the stars respond in novel ways. In a test,
+  <em>Stubs</em> are there to feed indirect inputs to the system under test. They should not
+  attempt to verify the behaviour of the subject. 
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>
+  Substituting authentic stubs by a <em>Test Double</em> is very common for a variety of reasons.
+  This is a good chance for audience participation.
+  </li>
+  <li>
+<a href='#mocktools'>Mock Toolkits</a> (more about these later) are an easy way 
+to create a <em>Stub</em>. Most toolkits default to verification of all behaviour. 
+This will result in a <a href='#fragiletest'>Fragile Test</a> where any novel interaction 
+with the <em>Stub</em> will result in a test failure. Learn how to alter this default before using
+the toolkit to create <em>Stubs</em>.
+  </li>
+  <li>
+A test should verify either <a href='#behaviourverification'>behaviour</a> 
+or <a href='#stateverification'>state</a> but not both
+  </li>
  </ul>
 </div>
 </div>
@@ -937,14 +980,15 @@ phase of the test, the records can be checked by the test.
 It is quite common that a mock or a spy will need to act as a stub, supplying
 indirect stimulation to the subject. This is a frequent cause of confusion.
 Tests which do not clearly communicate which interactions are intended to be
-verified and which are just exercise the <a href='#sut'>suject</a> 
+verified and which are just exercise the <a href='#sut'>subject</a> 
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>Before using a <a href='#mocktools'>Mock Toolkit</a>, learn how it can generate
+  <em>Stubs</em> and <em>Dummies</em> which do not verify behaviour. If it cannot, 
+  raise a bug and ensure other usages are very well documented.</li>
  </ul>
 </div>
 </div>
