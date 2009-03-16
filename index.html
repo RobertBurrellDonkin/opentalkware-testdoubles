@@ -1151,7 +1151,7 @@ START OF SLIDE
 Code smells are neither patterns nor anti-patterns. They are not design structure
 reusable for good or ill. Code smells are not quite specific enough to be 
 diagnostic symptoms either: they are general symptoms which - when usually
-observed - indicate that there's problem somewhere or other. 
+observed - indicate that there's a problem buried somewhere or other. 
   </p><p>
 Tracking down the root cause is sometimes easy, sometimes hard. It's not 
 unusual for a single cause to give rise to several smells. 
@@ -1229,8 +1229,10 @@ It is short for 'whatever thing we are testing'."
 
 <div class="notes">
  <ul>
-  <li>TODO</li>
-  <li>TODO</li>
+  <li>
+  When it starts becoming unclear which is the <em>subject</em> of the test, 
+  the test is probably overelaborate. Consider breaking it down.
+  </li>
  </ul>
 </div>
 </div>
@@ -1264,15 +1266,12 @@ When a subject is exercised, it interacts with the DOCs. The DOCs are crucial to
 test. Most objects created in a test are DOCs and find themselves playing different roles.
 Careful naming indicates quickly to a reader the role the DOCs plays in the test,
 an so is essential. A good understand of test patterns makes good naming easier.
-</p><p>
-Test doubles are DOCs.
-  </p>
+</p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>Test doubles are DOCs.</li>
  </ul>
 </div>
 </div>
@@ -1319,12 +1318,14 @@ START OF SLIDE
   for a group of tests which not only test the same subject but the same general context as well. 
   This usually allows permutations and variations to be added easily, and the fixture to be more 
   readily malleable.
+  </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO</li>
-  <li>TODO</li>
+  <li>Tests which have similar setups should be grouped together</li>
+  <li>When more setup happens in the test method than in the setup for the test class,
+  it's time to split the test class.</li>
  </ul>
 </div>
 
