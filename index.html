@@ -658,26 +658,55 @@ START OF SLIDE
 
 <div class='handout'>
   <p>
-Overelaboration lies at the heart of most with test comprehension. To avoid factoring out a
-common fixture, quality after quality is tested (and often retested) within a single case. 
+Overelaboration lies at the heart of most tests which are hard to comprehend. Typically,
+to avoid factoring out a common fixture, quality after quality is tested (and often retested) 
+within a single case. A test created when wearing a developer's hat should tell a 
+simple story but tell it well. Every test should follow the same simple pattern:
+  </p>
+  <ol> 
+    <li>Setup</li>
+    <li>Exercise</li>
+    <li>Verify</li>
+  </ol>
+  <p>
+Sounds easy, and so it is. But it's easier to slip into bad habits - adding another
+round of exercisement and verification rather than factoring out a new test specifically
+to test that new quality.
   </p><p>
-A test should tell a simple story and communicate it's intent - explain which the quality
-under trial. Good naming is crucial. Avoid just using method names for example testFooBar. 
-<em>What</em> is being tested can be made clear by the code. The intent cannot.
-A good habit is to use sentences for test names, describing the intention of the test.
+This is not to say that scripted tests are wrong - they are vital but they are not
+the same. Scripted tests should be developed with the <em>test professional</em> hat on,
+working from the user story perspective. They are often better developed using different
+technologies. However, this is all out of the scope so let's leave it there.
   </p><p>
-Choosing good names for fields and variables is important. Any modern IDE can indicate
-the nature of an object. It cannot indicate the role that it is intended to play nor
-the character built in fixture setup. The name needs to do that.
+Testing a single quality well is not enough. A test needs to communicate it's intent: 
+to explain the quality under trial. 
   </p><p>
-Use comments to indicate how the test proposes to go about it's business.
+Good naming is crucial. In any simple, high quality test <em>what</em> is exercised should be clear
+from the code. Insight into the intention of the test - the <em>why</em> is not.
+The developer needs to ensure that the intention is communicated.
+  </p><p>
+The name of the test should communicate the intent. Avoid naming a test from the method exercised. 
+Instead, use a sentence which describes the intent. Use the method comment to tie the intent
+into the design documentation and user stories.
+  </p><p>
+Choose good names for fields and variables. Any modern IDE can indicate the nature of an object. 
+It cannot indicate the role that it is intended to play nor the character built in fixture setup. 
+The name needs to do that. Thinking about the test as a drama will help improve the quality 
+of these names.
+  </p><p>
+Use in-code comments to indicate <em>how</em> the test proposes to go about it's business.
+A reader should be able to comprehend at a glance <em>how</em> a test works but too often,
+the details obscure this. So, factor them into methods and use in-code comments to explain 
+what's going on in all other cases. 
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>Prefer numerous short, focussed tests over a single long unfocussed one</li>
+  <li>Avoid <em>join-the-dots</em> TDD - think about intents linked to qualities in user stories 
+  or design documents rather than obsessing about a test per method. The best way to ensure good 
+  coverage is to measure it</li>
  </ul>
 </div>
 </div>
