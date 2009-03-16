@@ -248,8 +248,8 @@ START OF SLIDE
 <div class='handout'>
   <p>
   It is conventional to start with something like this. 
-  so, here it is. But that's not really what this talk's
-  about so answer not included.
+  So here it is. But that's not really what this talk's
+  about. So, answer not included.
   </p><p>
   This the start of a running gag with a serious side.
   Describing a unit test is easy but definition is not.
@@ -1837,12 +1837,6 @@ We replace a component on which the SUT depends with a 'test specific equivalent
   </p>
 </div>
 
-<div class="notes">
- <ul>
-  <li>TODO</li>
-  <li>TODO</li>
- </ul>
-</div>
 </div>
 <!--  
 END OF SLIDE 
@@ -1955,8 +1949,11 @@ desired inputs into the system under test."
 
 <div class="notes">
  <ul>
-  <li>TODO</li>
-  <li>TODO</li>
+  <li>
+  <a href='#mocktools'>Mock Toolkits</a> are an easy way to create that can feed indirect 
+  inputs to the <em>subject</em>. However, when stubbing, ensure that behaviour verification
+  is turned off completely.
+  </li>
  </ul>
 </div>
 </div>
@@ -2107,8 +2104,7 @@ invested rather than anything innate about this approach).
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>A spy when the record is to be verified, a mock object when expectations are set.</li>
  </ul>
 </div>
 </div>
@@ -2147,8 +2143,11 @@ it is being used correctly by the SUT."
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>
+  When a test has too many expectations, it does not effectively communicate it's intent.
+  One common cause is that <em>Mock objects</em> are used when <em>Stubs</em> are a 
+  better choice.
+  </li>
  </ul>
 </div>
 </div>
@@ -2218,8 +2217,8 @@ START OF SLIDE
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>When using a configurable <em>Test Double</em>, it often becomes difficult to understand 
+  the test clearly and quickly. Remember to comment the <em>How</em>.</li>
  </ul>
 </div>
 </div>
@@ -2273,8 +2272,10 @@ Like a Swiss Army Knife it is dangerous in the hands of anyone doesn't know enou
 
 <div class="notes">
  <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
+  <li>
+  Developers of <em>Mock Toolkits</em> often naively assume that users will restrict their
+  usage 
+  </li>
  </ul>
 </div>
 </div>
@@ -2320,13 +2321,6 @@ START OF SLIDE
   They can invest in good fixture to allow good coverage to be easily coded. They can clearly 
   document their intentions.
   </p>
-</div>
-
-<div class="notes">
- <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
- </ul>
 </div>
 </div>
 <!--  
