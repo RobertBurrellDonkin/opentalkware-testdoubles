@@ -249,7 +249,7 @@ START OF SLIDE
   <p>
   It is conventional to start with something like this. 
   So here it is. But that's not really what this talk's
-  about. So, answer not included.
+  about. Answer not included.
   </p><p>
   This the start of a running gag with a serious side.
   Describing a unit test is easy but definition is not.
@@ -601,7 +601,7 @@ START OF SLIDE
 <div class='handout'>
   <p>
 This analogy is the conventional introduction to <a href='#testdouble'>Test Doubles</a>.
-It is a useful way to comprehend the basic idea but to understand some of the subtles,
+It is a useful way to comprehend the basic idea but to understand some of the subtleties,
 other metaphors are needed.
   </p><p>
 An analogy that's sometimes used for a <em>Test Double</em> is a stunt man. This fails
@@ -738,7 +738,7 @@ most tests focus on a single object perhaps the facade to the system.
 <em>subject</em> is shorter and easier on the mouth, and will be used synonymously.
   </p><p>
 Understanding which is the system under test is crucial to the comprehension of a test.
-Readers should not have remember the name of the test or look back at the setup of the
+Readers should not have to remember the name of the test or look back at the setup of the
 fixture to understand which object is the subject. Adopt a simple logical naming convention
 - call the system under test <em>subject</em> or <em>systemUnderTest</em>, say - and make
 sure every test sticks to it.
@@ -1718,8 +1718,8 @@ START OF SLIDE
   Slow tests really are a killer. 
   </p><p>
   Though the cost of writing tests can be seen as an investment, the cost of waiting for tests 
-  to run is much harder. No manager - especially a senior one - likes to see a developer surfing 
-  the net, reading a paper or chatting with a collegue about the price of bread, even if it's 
+  to run is much harder to justify. No manager - especially a senior one - likes to see a developer 
+  surfing the net, reading a paper or chatting with a collegue about the price of bread, even if it's 
   just dead time whilst the tests are running. 
   </p><p>
   The indirect effects are often more insidious. They offer a strong disincentive to running 
@@ -1734,8 +1734,8 @@ START OF SLIDE
   Slow tests are an area where <a href='#testdouble'>Test Doubles</a> can be of great value.
   It's exceptionally rare (on modern machines, outside numeric computing) for the actual 
   code to take long to execute. Typically, the time goes in heavyweight setup, tear down
-  and data access which involve IO or extensive object creation. By substituting light weight
-  doubles for heavy weight <abbr title='depended-on components'>DOCs</abbr>, is the easiest
+  and data access which involve IO or extensive object creation. Substituting light weight
+  doubles for heavy weight <abbr title='depended-on components'>DOCs</abbr> is the easiest
   way to reduce these costs. 
   </p>
 </div>
@@ -2181,7 +2181,7 @@ START OF SLIDE
 <div class='handout'>
   <p>
   Reusability is the key difference between the two main implementation categories. A hard coded
-  double is really tied to a limited number of tests sharing similar fixtures. Configurable]
+  double is really tied to a limited number of tests sharing similar fixtures. Configurable
   doubles can be reused more widely, at the expense of the added complexity which comes from 
   their lack of specivity.
   </p>
@@ -2314,8 +2314,7 @@ START OF SLIDE
   by extending the number of behaviour changes that break the test beyond the minimum intended 
   to be tested.
   </p><p>
-  In the end, though, it's simply a question of poor test quality. Toolkits are just tools. 
-  Similar mistakes are often seen when <em>Mock Object Toolkits</em> are used. 
+  In the end, though, it's simply a question of poor test quality. Toolkits are just tools.
   </p><p>
   Developers can study patterns, learn how to analyse their tests and name appropriately. 
   They can invest in good fixture to allow good coverage to be easily coded. They can clearly 
@@ -2454,14 +2453,6 @@ START OF SLIDE
   the best way to learn the basics of Agile development. Every developer should own a copy.
   </p>
 </div>
-
-<div class="notes">
- <ul>
-  <li>TODO</li>
-  <li>TODO</li>
- </ul>
-</div>
-
 </div>
 <!--  
 END OF SLIDE 
@@ -2492,22 +2483,15 @@ Dan North's <a href='#bdd'>article</a> which introduced <cite>Behaviour Driven D
 of ideas into a couple of pages.
   </p>
   <p>
-  Martin Fowler's <cite>Mocks Aren't Stubs</cite> is a good place start to reading about test doubles. On problem with 
-  the BDD area is that it's technology lead. There are some great libraries but there's a tendency to apply them
-  blindly without thought. Take a step back and think first.
+  Martin Fowler's <cite>Mocks Aren't Stubs</cite> is a good place start to reading about test doubles. BDD has a tendency
+  to be technology lead. There are some great libraries but are often applied with insufficient thought. 
+  Take a step back and think first.
   </p>
   <p>
   <a href='#codesmells'>Code Smells</a> is a short - but definitive - description of the nature of a code smell.
   <a href='#xunittestpatterns'>xUnit Test Patterns</a> and <a href='#refactoring'>Refactoring</a> devote much
   more space to more detailed descriptions. Worth reading.
   </p>
-</div>
-
-<div class="notes">
- <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
- </ul>
 </div>
 </div>
 <!--  
@@ -2529,23 +2513,33 @@ START OF SLIDE
 
 <ul>
   <li>
-  <a name='nunit' href='http://www.nunit.org/'>NUnit</a> is an idiomatic <code>.NET</code>
-  unit testing framework
-  </li>
-  <li>
-  <a name='junit' href='http://junit.org/'>JUnit</a> is an idiomatic <code>Java</code>
+    <a name='cunit' href='http://cunit.sourceforge.net/'>CUnit</a> is an idiomatic <code>C</code>
   unit test framework.
   </li>
+    <li>
+    <a name='junit' href='http://junit.org/'>JUnit</a> is an idiomatic <code>Java</code>
+    unit test framework.
+  </li>
+  <li>
+  <a name='nunit' href='http://www.nunit.org/'>NUnit</a> is an idiomatic <code>.NET</code>
+  unit test framework
+  </li>
+  <li>
+    <a name='sunit' href='http://sunit.sourceforge.net/'>SUnit</a> is an idiomatic <code>Smalltalk</code>
+  unit test framework.
+  </li>
+  <li>...And So On...</li>
 </ul>
 
 <div class='handout'>
   <p>
+  The <em>xUnit</em> family is large indeed. This is a just a sample. The tools are out there...
   </p>
 </div>
 
 <div class="notes">
  <ul>
-  <li>Opportunity for audience participation, if time allows<li>
+  <li>Opportunity for audience participation (if time allows) by naming tests<li>
  </ul>
 </div>
 
@@ -2560,17 +2554,24 @@ START OF SLIDE
 -->
 <div class="slide">
 <h1><a name='mocktools'>Mocking Toolkits</a></h1>
-<!--
 <ul>
+  <li>
+    <a href='http://www.easymock.org/' name='easymock'>EasyMock</a>
+  </li>
   <li>
   <a href='http://jmock.org' name='jmock'>JMock</a>
   </li>
+  <li>
+  <a href='http://code.google.com/p/mockito/' name='mockito'>Mockito</a>
+  </li>
+  <li>
+  <a href='http://code.google.com/p/googlemock/' name='googlemock'>GoogleMock</a>
+  </li>
   <li>...</li>
 </ul>
--->
 <div class='handout'>
   <p>
-  Foo bar blah
+  Take your pick. Again, this is a long way from being an comprehensive list.
   </p>
 </div>
 
@@ -2624,10 +2625,6 @@ END ATTRIBUTION
 
 <div class='handout'>
   <p>
-  TODO:
-  Foo bar blah
-  </p>
-  <p>
 <!-- 
 START ATTRIBUTION 
 
@@ -2644,12 +2641,6 @@ END ATTRIBUTION
   </p>
 </div>
 
-<div class="notes">
- <ul>
-  <li>TODO:</li>
-  <li>TODO:</li>
- </ul>
-</div>
 </div>
 <!--  
 END OF ACKNOWLEDGEMENTS
