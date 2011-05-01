@@ -615,10 +615,6 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
   <xsl:template match="xhtml:td">
     <!-- TODO: Support tables -->
   </xsl:template>
-
-  <xsl:template match="xhtml:td">
-    <!-- TODO: Support tables -->
-  </xsl:template>
   
   <xsl:template match="xhtml:textarea">
     <!-- Ignore -->
