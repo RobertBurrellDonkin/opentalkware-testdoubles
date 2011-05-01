@@ -154,6 +154,13 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
     <!-- Ignore notes -->
   </xsl:template>
 
+  <!-- 
+    Important
+  -->
+  <xsl:template match="xhtml:div[@class='handout']">
+    <!-- Ignore notes -->
+  </xsl:template>
+
 
   <!-- 
     
