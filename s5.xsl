@@ -109,6 +109,13 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
   <!-- Standard indentation (used for paragraphs) -->
   <xsl:param name='MainIndent'>1em</xsl:param>
   
+  <!-- 
+  Styles
+   -->
+  <!-- cite -->
+  <xsl:param name='CiteFontStyle'>italic</xsl:param>
+  <xsl:param name='CiteFontFamily'>monospace</xsl:param>
+  
   <!--
   Match top level document 
   -->
@@ -251,7 +258,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
   </xsl:template>
   
   <xsl:template match="xhtml:cite">
-    <fo:inline font-style="italic">
+    <fo:inline font-style="{$CiteFontStyle}" font-family="{$CiteFontFamily}">
       <xsl:apply-templates />
     </fo:inline>
   </xsl:template>
