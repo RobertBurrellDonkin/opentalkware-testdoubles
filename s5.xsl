@@ -507,7 +507,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
           <xsl:number />          .
         </fo:block>
       </fo:list-item-label>
-      <fo:list-item-body start-indent="{$UsualTextSize}">
+      <fo:list-item-body start-indent="{$ListTextIndent}">
         <fo:block font-size="{$UsualTextSize}" font-family="{$MainFont}">
           <xsl:apply-templates />
         </fo:block>
