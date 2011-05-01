@@ -232,10 +232,7 @@ OF THE POSSIBILITY OF SUCH DAMAGE.
   </xsl:template>  
   
   <xsl:template match="xhtml:br">
-    <!-- 
-    Ignore 
-    Is there a way to break blocks in XSL-FO?
-    -->
+    <fo:block/>
   </xsl:template>  
  
   <xsl:template match="xhtml:button">
