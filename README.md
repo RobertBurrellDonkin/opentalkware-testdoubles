@@ -1,6 +1,11 @@
 # OpenTalkware Test Doubles
 Open source HTML based slideshow about Test Doubles. Originally in OpenTalkware at Googlecode.
 
+## Generating PDFs
+
+Those who prefer PDFs should try http://github.com/RobertBurrellDonkin/S5toPDF,
+a set of S5 stylesheets for Apache FOP.
+
 # OpenTalkware
 
 OpenTalkware was relocated from GoogleCode https://code.google.com/archive/p/opentalkware/.
